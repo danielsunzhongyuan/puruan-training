@@ -1,9 +1,19 @@
 package org.github.zsun.java.puruan_training.java_basics.chapter3;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.*;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 class Test implements Cloneable {
     private int i;
@@ -95,6 +105,48 @@ public class DeepCopy {
 
         System.out.println(test.getList()); // [abc]
         System.out.println(test1.getList()); // [def]
+    }
+
+    public static void StreamCopyWithIssue() {
+        Map<String, Test> map = new HashMap<>();
+        map.put("1", new Test());
+        map.put("2", new Test());
+
+        map.get("1").setList(new ArrayList<>());
+        Map<String, Test> map1 = map.entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        map1.get("1").getList().add("a");
+        map.forEach((k, v) -> {
+            System.out.println(v.getList());
+        }); // 依然被影响了
+    }
+
+    /**
+     * Here use Gson to serialize
+     */
+    public static void SerializationCopy() {
+        Map<String, Test> map = new HashMap<>();
+        map.put("3", new Test());
+        map.put("4", new Test());
+
+        map.get("3").setList(new ArrayList<>());
+
+        Gson gson = new Gson();
+
+        String s = gson.toJson(map);
+        Type type = new TypeToken<HashMap<String, Test>>() {
+        }.getType();
+        Map<String, Test> o = gson.fromJson(s, type);
+
+        o.get("3").getList().add("xxx");
+
+        map.forEach((k, v) -> {
+            System.out.println(v.getList());
+        });
+
+        o.forEach((k, v) -> {
+            System.out.println(v.getList());
+        });
     }
 
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
