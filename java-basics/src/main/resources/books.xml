@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<books>
+    <book id="01">
+        <name>Java</name>
+        <price>15</price>
+        <memo>Good book</memo>
+    </book>
+    <book id="02">
+        <name>Python</name>
+        <price>19</price>
+        <memo>Good too</memo>
+    </book>
+</books>

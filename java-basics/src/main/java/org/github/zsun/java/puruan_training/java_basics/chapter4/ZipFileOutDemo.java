@@ -10,17 +10,17 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class ZipFileDemo {
+public class ZipFileOutDemo {
     public static void main(String[] args) {
 
-        String resource = ZipFileDemo.class.getClassLoader().getResource("1.txt").getPath();
+        String resource = ZipFileOutDemo.class.getClassLoader().getResource("1.txt").getPath();
         System.out.println("Absolute path " + new File(resource).getAbsolutePath());
         System.out.println("Path " + new File(resource).getPath());
         System.out.println("Parent path " + new File(resource).getParent());
         System.out.println("Absolute path " + new File(resource).getAbsolutePath());
         String zipFileName = "./x.zip";
-        String file1 = ZipFileDemo.class.getClassLoader().getResource("1.txt").getPath();
-        String file2 = ZipFileDemo.class.getClassLoader().getResource("2.txt").getPath();
+        String file1 = ZipFileOutDemo.class.getClassLoader().getResource("1.txt").getPath();
+        String file2 = ZipFileOutDemo.class.getClassLoader().getResource("2.txt").getPath();
         int zipRes = -1;
         System.out.println(System.getProperty("user.dir"));
         try (
