@@ -12,10 +12,31 @@
     <name>Spring Boot Root - Chapter5 AOP Demo</name>
     <description>Chapter5 AOP Demo</description>
 
+    <dependencyManagement>
+        <dependencies>
+            <!--
+                "import" scope could only be put under "dependencyManagement"
+                and in its child projects, no need to add this dependency to "dependencies"
+            -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.6.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
             <version>2.6.1</version>
         </dependency>
 
