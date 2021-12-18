@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>spring-boot-root</artifactId>
         <groupId>org.github.zsun.java.puruantraining</groupId>
+        <artifactId>spring-boot-root</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
-    <artifactId>chapter5-interceptor-demo</artifactId>
-    <name>Spring Boot Root - Chapter5 Interceptor Demo</name>
-    <description>Chapter5 interceptor demo</description>
+    <artifactId>chapter11-redis-mysql-demo</artifactId>
+    <name>Spring Boot Root - Chapter11 Redis Mysql Demo</name>
+    <description>chapter11-redis-mysql-demo</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -18,6 +18,25 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
         </dependency>
 
         <dependency>
@@ -32,7 +51,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.6.1</version>
                 <executions>
                     <execution>
                         <goals>
