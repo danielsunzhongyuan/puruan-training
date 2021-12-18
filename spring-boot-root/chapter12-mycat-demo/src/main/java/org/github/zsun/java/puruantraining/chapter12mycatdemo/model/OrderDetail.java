@@ -12,11 +12,11 @@ public class OrderDetail implements Serializable {
 
     @Id
     @Column(name = "id")
-    private int id;
+    private long id;
     @Column(name = "name")
     private String name;
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -24,7 +24,7 @@ public class OrderDetail implements Serializable {
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

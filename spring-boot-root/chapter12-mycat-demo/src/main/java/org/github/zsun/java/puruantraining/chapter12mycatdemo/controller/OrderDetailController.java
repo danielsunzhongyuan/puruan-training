@@ -15,7 +15,7 @@ public class OrderDetailController {
     OrderDetailService orderDetailService;
 
     @RequestMapping("/save")
-    public void save(@RequestParam(name = "id") int id,
+    public void save(@RequestParam(name = "id") long id,
                      @RequestParam(name = "name") String name) {
         OrderDetail orderDetail = new OrderDetail();
         orderDetail.setId(id);
@@ -23,13 +23,13 @@ public class OrderDetailController {
         orderDetailService.saveStudent(orderDetail);
     }
 
-    @RequestMapping("/findByID/{id}")
-    public OrderDetail findById(@PathVariable int id) {
+    @RequestMapping("/findById/{id}")
+    public OrderDetail findById(@PathVariable long id) {
         return orderDetailService.findById(id);
     }
 
-    @RequestMapping("/deleteByID/{id}")
-    public void deleteById(@PathVariable int id) {
+    @RequestMapping("/deleteById/{id}")
+    public void deleteById(@PathVariable long id) {
         orderDetailService.deleteById(id);
     }
 }

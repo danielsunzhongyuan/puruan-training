@@ -14,11 +14,11 @@ public class OrderDetailService {
         orderDetailRepo.save(orderDetail);
     }
 
-    public OrderDetail findById(int id) {
+    public OrderDetail findById(long id) {
         return orderDetailRepo.findOrderdetailById(id);
     }
 
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         orderDetailRepo.deleteById(id);
     }
 }
