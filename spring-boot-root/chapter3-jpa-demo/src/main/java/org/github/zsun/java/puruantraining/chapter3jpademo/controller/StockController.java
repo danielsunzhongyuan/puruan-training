@@ -22,8 +22,15 @@ public class StockController {
     StockForTransService stockForTransService;
 
     @RequestMapping("/getStockByName/{name}")
-    public List<Stock> getStockByName(@PathVariable String name) {
-        return stockService.findByName(name);
+    public List<Stock> getStockByName(@PathVariable String name) throws Exception{
+        if ("null".equals(name) || "error".equals(name)) {
+            throw new Exception("Param is error");
+        }
+        List<Stock> stocks = stockService.findByName(name);
+        if (stocks.size() == 0) {
+            throw new Exception("No stock");
+        }
+        return stocks;
     }
 
     @RequestMapping("/getAllStocks")

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name = "stock") //和Stock数据表关联
 public class Stock {
     @Id //通过@Id定义主键
-    private int ID;
+    private int id;
     @Column(name = "name")
     private String name;
     @Column(name = "num")
@@ -18,8 +18,8 @@ public class Stock {
     @Column(name = "description")
     private String description;
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -34,8 +34,8 @@ public class Stock {
         this.description = description;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public String getName() {

@@ -35,7 +35,7 @@ public class StockService {
     //插入库存信息
     public Stock insertStock() {
         Stock stock = new Stock();
-        stock.setID(10);
+        stock.setId(10);
         stock.setName("machine");
         stock.setNum(5);
         stock.setDescription("Good");
