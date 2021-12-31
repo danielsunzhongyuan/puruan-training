@@ -28,6 +28,8 @@
         <module>chapter5-aop-demo</module>
         <module>chapter5-filter-demo</module>
         <module>chapter5-interceptor-demo</module>
+        <module>chapter9-security-db-demo</module>
+        <module>chapter9-security-simple-demo</module>
         <module>chapter11-redis-demo</module>
         <module>chapter11-redis-mysql-demo</module>
         <module>chapter12-mycat-demo</module>
@@ -60,6 +62,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
