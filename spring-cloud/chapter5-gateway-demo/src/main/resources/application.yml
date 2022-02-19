@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        # 路由id，可随便命名，但要确保唯一
+        - id: account_route
+          # 匹配后的地址
+          uri: http://localhost:8090/getAccount/{id}
+          #断言
+          predicates:
+            # 包含/getAccount即需转发
+            - Path=/getAccount/{id}
+        - id: StripPrefix_route
+          # 匹配后的地址
+          uri: http://localhost:8090
+          predicates:
+            - Path=/needRemoved/**
+          filters:
+            - StripPrefix=1
+        - id: PrefixPath_route
+          # 匹配后的地址
+          uri: http://localhost:8090
+          predicates:
+            - Method=GET
+          filters:
+            - PrefixPath=/getAccount

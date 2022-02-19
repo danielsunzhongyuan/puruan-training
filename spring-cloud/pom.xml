@@ -11,6 +11,11 @@
 
     <artifactId>spring-cloud</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>chapter4-sentinel-demo</module>
+        <module>chapter5-gateway-demo</module>
+        <module>chapter5-gateway-service</module>
+    </modules>
 
     <properties>
         <spring.boot.version>2.2.8.RELEASE</spring.boot.version>
