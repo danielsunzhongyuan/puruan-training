@@ -1,0 +1,19 @@
+server:
+  port: 9090
+spring:
+  applcation:
+    name: GateWithSentinel
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: loadbalance_route
+          uri: lb://ServiceProvider/
+          predicates:
+            - Path=/callServiceByRibbon
+    sentinel:
+      transport:
+        port: 8085
+        dashboard: localhost:8099

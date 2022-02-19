@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: oldVersion_Route
+          uri: http://localhost:3333/getAccount/{id}
+          predicates:
+            - Path=/getAccount/{id}
+            - Weight=accountGroup, 9
+        - id: newVersion_Route
+          uri: http://localhost:5555/getAccount/{id}
+          predicates:
+            - Path=/getAccount/{id}
+            - Weight=accountGroup, 1
