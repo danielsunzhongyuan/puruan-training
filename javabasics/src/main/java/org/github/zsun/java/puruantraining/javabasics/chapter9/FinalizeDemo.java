@@ -3,6 +3,7 @@ package org.github.zsun.java.puruantraining.javabasics.chapter9;
 public class FinalizeDemo {
     private static FinalizeDemo obj = null;
 
+    @Override
     protected void finalize() throws Throwable {
         System.out.println("In finalize()");
         obj = this;

@@ -27,7 +27,7 @@ public class StockController {
             throw new Exception("Param is error");
         }
         List<Stock> stocks = stockService.findByName(name);
-        if (stocks.size() == 0) {
+        if (stocks.isEmpty()) {
             throw new Exception("No stock");
         }
         return stocks;

@@ -25,6 +25,9 @@ class child extends Base {
     // overload
     public void print(int row, String type) {
     }
+
+    public void print(String type,int row) {
+    }
 }
 
 public class OverloadOverride {
